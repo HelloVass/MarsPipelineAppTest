@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.parcelize")
+    id("com.bytedance.mars.mars-gradle-plugin")
 }
 
 android {
@@ -35,13 +36,20 @@ android {
     }
 }
 
+fun getDeps(): Map<String, String?> {
+    val ext = rootProject.extensions["veMarsExt"] as? com.bytedance.mars.veMarsExt
+        ?: return emptyMap()
+    return ext.deps.toMap()
+}
+
 dependencies {
-    // appcompat
-    implementation("androidx.appcompat:appcompat:1.4.1")
+    val deps = getDeps()
     // material
-    implementation("com.google.android.material:material:1.5.0")
+    implementation(requireNotNull(deps["material"]))
+    // appcompat
+    implementation(requireNotNull(deps["appcompat"]))
     // test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation(requireNotNull(deps["espresso_core"]))
 }

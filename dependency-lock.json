@@ -1,0 +1,33 @@
+{
+  "dependencies": [
+    {
+      "artifactId": "appcompat",
+      "groupId": "androidx.appcompat",
+      "version": "1.4.2"
+    },
+    {
+      "artifactId": "material",
+      "groupId": "com.google.android.material",
+      "version": "1.5.0"
+    },
+    {
+      "artifactId": "espresso-core",
+      "groupId": "androidx.test.espresso",
+      "version": "3.4.0"
+    },
+    {
+      "artifactId": "player",
+      "groupId": "com.mars.lib2",
+      "targets": [
+        {
+          "flavorName": "demo",
+          "version": "1.0.2.demo"
+        },
+        {
+          "flavorName": "full",
+          "version": "1.0.2.full"
+        }
+      ]
+    }
+  ]
+}
