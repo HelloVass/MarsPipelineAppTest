@@ -1,27 +1,9 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://artifact.bytedance.com/repository/Volcengine/") }
-    }
-    dependencies {
-        // agp
-        classpath("com.android.tools.build:gradle:4.2.2")
-        // kotlin gradle plugin
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
-        //
-        classpath("com.bytedance.mars:mars-gradle-plugin:1.0.2")
-    }
+plugins {
+    id("com.android.application") version "7.0.4" apply false
+    id("com.android.library") version "7.0.4" apply false
+    id("org.jetbrains.kotlin.android") version "1.5.31" apply false
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://artifact.bytedance.com/repository/Volcengine/") }
-    }
-}
-
-tasks.register("clean", Delete::class) {
+val clean by tasks.registering(Delete::class) {
     delete(rootProject.buildDir)
 }
