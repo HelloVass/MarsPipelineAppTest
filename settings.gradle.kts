@@ -20,12 +20,18 @@ pluginManagement {
         }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://artifact.bytedance.com/repository/Volcengine/") }
+        maven("https://repo.rdc.aliyun.com/repository/139280-release-is28wB/") {
+            credentials {
+                username = "bjO81N"
+                password = "CUUi8rlOB1"
+            }
+        }
     }
 }
 
