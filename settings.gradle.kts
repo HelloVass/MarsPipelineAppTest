@@ -9,7 +9,10 @@ pluginManagement {
     }
     resolutionStrategy {
         eachPlugin {
-            when (this.requested.id.id) {
+            when (requested.id.id) {
+                "com.android.application",
+                "com.android.library" ->
+                    useModule("com.android.tools.build:gradle:4.2.2")
                 "com.bytedance.mars.mars-gradle-plugin" -> {
                     useModule("com.bytedance.mars:mars-gradle-plugin:1.0.2")
                 }
